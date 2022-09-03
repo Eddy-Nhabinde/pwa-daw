@@ -5,6 +5,7 @@
         <input
           type="text"
           aria-label="Text input with segmented dropdown button"
+          placeholder="Pesquisa cidade especifica"
         />
         <div class="input-group-append">
           <button type="button" class="btn btn-outline-secondary">
@@ -19,11 +20,7 @@
 <script>
 export default {
   name: "Input",
-  data() {
-    return {
-      text: "",
-    };
-  },
+
 };
 </script>
 
