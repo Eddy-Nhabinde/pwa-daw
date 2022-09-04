@@ -1,14 +1,32 @@
 <template>
-  <div class="card" style="width: 18rem; height: 350px;">
+  <div class="card" style="width: 18rem; height: 350px">
     <div class="card-body">
-      <h2 class="card-title">Maputo</h2>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
+      <h2 class="card-title" v-if="dados">{{ dados[0] }}</h2>
+      <div id="sun">
+        <img
+          v-if="dados[3] == 'clear sky'"
+          src="../assets/1530392_weather_sun_sunny_temperature_icon.png"
+        />
+        <img
+          v-if="dados[3] == 'scattered clouds'"
+          src="../assets/1530369_weather_cloud_clouds_cloudy_icon.png"
+        />
+        <img
+          v-if="dados[3] == 'broken clouds'"
+          src="../assets/1530369_weather_cloud_clouds_cloudy_icon.png"
+        />
+        <img
+          v-if="dados[3] == 'shower rain '"
+          src="../assets/2682845_cloud_cloudy_forecast_rain_sun_icon.png"
+        />
+        <img
+          v-if="dados[3] == 'rain'"
+          src="../assets/2682845_cloud_cloudy_forecast_rain_sun_icon.png"
+        />
+      </div>
       <div id="graus">
-        <h4> 20 C</h4>
-        <h4> 20 C</h4>
+        <h4><span>Min: </span>{{ dados[1] }}°C</h4>
+        <h4><span>Max: </span> {{ dados[2] }}°C</h4>
       </div>
     </div>
   </div>
@@ -16,26 +34,40 @@
 
 <script>
 export default {
-  name: "Card",
+  props: ["dados"],
 };
 </script>
 
 <style scoped>
-.card{
-    background: #4E3863;
-    color: white;
+#sun {
+  display: flex;
+  justify-content: center;
+  height: 200px;
 }
 
-h2{
-    text-align: center;
+.card {
+  background: #4e3863;
+  color: white;
 }
 
-#graus{
-    font-style: italic;
-    margin-top: 160px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+h2 {
+  text-align: center;
+}
 
+h4 {
+  font-size: 15px;
+}
+
+h4 span{
+  font-size: 23px;
+  color: rgb(8, 243, 243);
+}
+
+#graus {
+  margin-top: 30px;
+  font-style: italic;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 </style>
