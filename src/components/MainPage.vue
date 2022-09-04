@@ -5,11 +5,13 @@
     <Card :dados="dados2" />
     <Card :dados="dados3" />
   </div>
+  <Foot />
 </template>
 
 <script>
 import SearchComponentVue from "./SearchComponent.vue";
 import Card from "./Card.vue";
+import Foot from "./Footer.vue";
 
 export default {
   name: "MainPage",
@@ -36,6 +38,7 @@ export default {
   components: {
     SearchComponentVue,
     Card,
+    Foot,
   },
 
   methods: {
@@ -102,7 +105,7 @@ export default {
 <style scoped>
 #div {
   width: 100%;
-  margin-top: 80px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-evenly;
 }
