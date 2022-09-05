@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem; height: 350px">
+  <div class="card">
     <div class="card-body">
       <h2 class="card-title" v-if="dados">{{ dados[0] }}</h2>
       <div id="sun">
@@ -13,6 +13,10 @@
         />
         <img
           v-if="dados[3] == 'broken clouds'"
+          src="../assets/1530369_weather_cloud_clouds_cloudy_icon.png"
+        />
+        <img
+          v-if="dados[3] == 'few clouds'"
           src="../assets/1530369_weather_cloud_clouds_cloudy_icon.png"
         />
         <img
@@ -46,6 +50,9 @@ export default {
 }
 
 .card {
+  width: 18rem;
+  height: 350px;
+  margin-top: 30px;
   background: #4e3863;
   color: white;
 }
@@ -58,7 +65,7 @@ h4 {
   font-size: 15px;
 }
 
-h4 span{
+h4 span {
   font-size: 23px;
   color: rgb(8, 243, 243);
 }
@@ -70,4 +77,5 @@ h4 span{
   width: 100%;
   justify-content: space-between;
 }
+
 </style>

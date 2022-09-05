@@ -1,5 +1,5 @@
 <template>
-  <SearchComponentVue />
+    <SearchComponentVue id="sc" :cidades="cidades" />
   <div id="div">
     <Card :dados="dados1" />
     <Card :dados="dados2" />
@@ -91,12 +91,12 @@ export default {
   },
 
   mounted() {
-    this.renew();
+    // this.renew();
   },
 
   created() {
     this.interval = setInterval(() => {
-      this.renew();
+      // this.renew();
     }, 2000);
   },
 };
@@ -105,8 +105,32 @@ export default {
 <style scoped>
 #div {
   width: 100%;
-  margin-top: 60px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-evenly;
+}
+
+#sc{
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+  #div {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 40% 40%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 </style>

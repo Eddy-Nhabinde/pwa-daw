@@ -24,4 +24,16 @@
     text-align: center;
     font-size: 20px;
   }
+
+  @media only screen and (max-width: 900px) {
+    div{
+      margin-top: 20px;
+      position:relative;
+      margin-bottom: -10px;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    h1{color:white}
+  }
 </style>
