@@ -1,5 +1,5 @@
 <template>
-    <SearchComponentVue id="sc" :cidades="cidades" />
+    <SearchComponentVue id="sc"/>
   <div id="div">
     <Card :dados="dados1" />
     <Card :dados="dados2" />
@@ -46,14 +46,16 @@ export default {
       if (this.controlador == 9) {
         this.controlador = 0;
         fetch(
-          "https://api.openweathermap.org/data/2.5/weather?q=Lichinga,MZ&units=metric&APPID=250585e7bf3a2a19e0c48b7945ca6982"
+          "https://api.openweathermap.org/data/2.5/weather?q=Lichinga,MZ&units=metric&APPID=e3cebe94c098059265d182ddb3baa9ea"
         )
           .then((resp) => resp.json())
           .then((data) => {
             this.dados1[0] = data.name;
             this.dados1[1] = data.main.temp_min;
             this.dados1[2] = data.main.temp_max;
-            this.dados1[3] = data.weather[0].description;
+            this.dados1[3] = data.weather[0].main;
+            console.log(data)
+
           })
           .catch((err) => console.log(err));
       } else {
@@ -63,7 +65,7 @@ export default {
           fetch(
             "https://api.openweathermap.org/data/2.5/weather?q=" +
               this.cidades[a] +
-              ",MZ&units=metric&APPID=250585e7bf3a2a19e0c48b7945ca6982"
+              ",MZ&units=metric&APPID=e3cebe94c098059265d182ddb3baa9ea"
           )
             .then((resp) => resp.json())
             .then((data) => {
@@ -71,17 +73,17 @@ export default {
                 this.dados1[0] = data.name;
                 this.dados1[1] = data.main.temp_min;
                 this.dados1[2] = data.main.temp_max;
-                this.dados1[3] = data.weather[0].description;
+                this.dados1[3] = data.weather[0].main;
               } else if (a == 1 || a == 4 || a == 7) {
                 this.dados2[0] = data.name;
                 this.dados2[1] = data.main.temp_min;
                 this.dados2[2] = data.main.temp_max;
-                this.dados2[3] = data.weather[0].description;
+                this.dados2[3] = data.weather[0].main;
               } else if (a == 2 || a == 5 || a == 8) {
                 this.dados3[0] = data.name;
                 this.dados3[1] = data.main.temp_min;
                 this.dados3[2] = data.main.temp_max;
-                this.dados3[3] = data.weather[0].description;
+                this.dados3[3] = data.weather[0].main;
               }
             })
             .catch((err) => console.log(err));
@@ -91,12 +93,12 @@ export default {
   },
 
   mounted() {
-    // this.renew();
+    this.renew();
   },
 
   created() {
     this.interval = setInterval(() => {
-      // this.renew();
+      this.renew();
     }, 2000);
   },
 };

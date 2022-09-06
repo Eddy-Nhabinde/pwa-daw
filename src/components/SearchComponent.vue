@@ -16,7 +16,7 @@
           <option value="Lichinga" >Lichinga</option>
         </select>
         <div class="input-group-append">
-          <button type="button" class="btn btn-outline-secondary">
+          <button @click="teste" type="button" class="btn btn-outline-secondary">
             Pesquisar
           </button>
         </div>

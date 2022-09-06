@@ -4,27 +4,15 @@
       <h2 class="card-title" v-if="dados">{{ dados[0] }}</h2>
       <div id="sun">
         <img
-          v-if="dados[3] == 'clear sky'"
+          v-if="dados[3] == 'Rain'"
           src="../assets/1530392_weather_sun_sunny_temperature_icon.png"
         />
         <img
-          v-if="dados[3] == 'scattered clouds'"
+          v-if="dados[3] == 'Clouds'"
           src="../assets/1530369_weather_cloud_clouds_cloudy_icon.png"
         />
         <img
-          v-if="dados[3] == 'broken clouds'"
-          src="../assets/1530369_weather_cloud_clouds_cloudy_icon.png"
-        />
-        <img
-          v-if="dados[3] == 'few clouds'"
-          src="../assets/1530369_weather_cloud_clouds_cloudy_icon.png"
-        />
-        <img
-          v-if="dados[3] == 'shower rain '"
-          src="../assets/2682845_cloud_cloudy_forecast_rain_sun_icon.png"
-        />
-        <img
-          v-if="dados[3] == 'rain'"
+          v-if="dados[3] == 'Clear'"
           src="../assets/2682845_cloud_cloudy_forecast_rain_sun_icon.png"
         />
       </div>
